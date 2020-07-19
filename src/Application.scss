@@ -1,0 +1,70 @@
+@import "~bootstrap/scss/bootstrap";
+.App {
+  text-align: center;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+.note{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  strong{
+    margin-right: 1rem;
+  }
+
+  span{
+    font-size: 14px;
+  }
+}
+
+.preloader{
+  position: absolute;
+  width: 150px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+
+.alert-enter{
+  opacity: 0;
+}
+
+.alert-enter-active{
+  transition: all .5s ease-out;
+  opacity: 1;
+}
+
+.alert-exit-active{
+  transition: all .35s ease-out;
+  opacity: 0;
+}
+
+.note-exit-active{
+  animation: note .8s ease-out forwards;
+}
+
+.note-enter-active{
+  animation: note .8s ease-out alternate-reverse;
+}
+
+@keyframes note {
+  0% {
+    transform: translateX(0);
+  }
+
+  30% {
+    opacity: .7;
+    transform: translateX(30px);
+  }
+
+  100% {
+    opacity: .0;
+    transform: translateX(-200px);
+  }
+}

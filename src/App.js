@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Switch, BrowserRouter, Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+
+import { Navbar } from './components/Navbar'
+import { Container } from 'react-bootstrap'
+import store from './redux/store'
+import FormUserContainer from './components/multiStepsform/FormUserContainer'
+import showResults from './components/multiStepsform/pages/ShowResult'
+import Welcome from './components/initialization/Welcome'
+import './Application.scss';
+
+import NoteContainer from './components/note/NoteContainer'
+import { FirebaseState } from './context/firebase/FirebaseState'
+import { AlertState } from './context/alert/AlertState'
+import { Alert } from './components/note/components/Alert.jsx'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <FirebaseState>
+      <AlertState>
+        <Provider store={store}>
+          <div className="App">
+            <BrowserRouter>
+              <Navbar />
+              <Container>
+                <Switch>
+                  <Route exact path={'/'}>
+                    <Welcome />
+                  </Route>
+                  <Route exact path={'/multi-stepsform'}>
+                    <FormUserContainer onSubmit={showResults} />
+                  </Route>
+                  <Route
+                    path={'/notes'}
+                  >
+                    <Alert/>
+                    <NoteContainer />
+                  </Route>
+                </Switch>
+              </Container>
+            </BrowserRouter>
+          </div>
+        </Provider>
+      </AlertState>
+    </FirebaseState>
+  )
 }
 
-export default App;
+export default App

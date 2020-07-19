@@ -1,0 +1,131 @@
+@keyframes form-up {
+  from { margin-top: 70px; opacity: 0; }
+  to { margin-top: 0px; opacity: 1; }
+}
+.Form {
+  border-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 400px;
+  margin: 0 auto 100px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  animation: form-up 0.7s;
+}
+
+.FormInput{
+margin-top: 30px;
+
+}
+
+ .FormInput input, select, textarea{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: all .2s linear;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.2);
+  cursor: pointer;
+  
+
+}
+
+@keyframes shake {
+  10%, 70% { transform: translate(-1px, 0); }
+  25%, 85% { transform: translate(2px, 0); }
+  40% { transform: translate(-3px, 0); }
+  55% { transform: translate(3px, 0); }
+}
+
+.FormInput.errorField input {
+  border: 1px solid rgba(255, 0, 0, 0.137);
+  animation: shake 0.5s;
+  
+}
+
+.RememberMe {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.FormButton {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #0050B3;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin: 20px;
+}
+.radioError,
+
+.error{
+  text-align: left;
+  font-size: 12px;
+  padding: 5px;
+  color: #ff0000;
+  transition: all .2s linear;
+  position: absolute;
+  animation: shake 0.5s;
+
+}
+
+.radioError{
+  padding-top: 35px;
+}
+
+.radioInputs{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+
+  & label, input {
+    cursor: pointer;
+  }
+}
+
+
+
+.controlButtons{
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-around;
+  & button{width: 90px;}
+}
+
+.emploidCheckbox{
+  display: flex;
+    text-align: left;
+    margin-top: 30px;
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 600;
+    justify-content: space-between;
+
+    & input{
+      cursor: pointer;
+    }
+    
+}
+
+
